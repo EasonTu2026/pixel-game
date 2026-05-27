@@ -96,7 +96,14 @@ npm run dev
 2. **Name**: `VITE_PASS_THRESHOLD` （及格門檻，預設 3）
 3. **Name**: `VITE_QUESTION_COUNT` （總題數，預設 5）
 
-### 3. 推送程式碼並檢查
+### 3. 啟用 GitHub Pages 的 Actions 部署 (關鍵步驟 ⚠️)
+預設情況下，GitHub Pages 會嘗試從「分支 (Branch)」進行部署，這會導致 Actions 發生 `404 Not Found` 錯誤。請手動更改設定：
+1. 進入您在 GitHub 上的專案倉庫頁面。
+2. 點擊上方的 **Settings** 頁籤。
+3. 在左側選單找到 **Pages**。
+4. 在中間的 **Build and deployment** 區塊下，將 **Source** 從「Deploy from a branch」改為 **「GitHub Actions」**。
+
+### 4. 推送程式碼並檢查
 1. 將包含 `.github/workflows/deploy.yml` 的程式碼推送到 GitHub 的 `main` 分支。
-2. 在倉庫頁面點擊 **Actions** 頁籤，您會看到「Deploy to GitHub Pages」正在執行。
-3. 部署成功後，進入 **Settings** > **Pages**，就能看到專屬您的遊戲公開網址了！
+2. 在倉庫頁面點擊 **Actions** 頁籤，您會看到「Deploy to GitHub Pages」自動觸發並順利執行！
+3. 部署成功後，返回 **Settings** > **Pages**，就能看到專屬您的遊戲公開網址了！
