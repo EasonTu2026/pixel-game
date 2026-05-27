@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --color-bg-dark: #0a0314;
+  --color-bg-cabinet: #15092a;
+  --color-neon-pink: #ff007f;
+  --color-neon-cyan: #00ffff;
+  --color-neon-green: #39ff14;
+  --color-neon-yellow: #ffff00;
+  --color-text-white: #ffffff;
+  
+  --font-arcade: 'Press Start 2P', cursive;
+  --font-pixel: 'VT323', monospace;
+  --font-mono: 'Share Tech Mono', monospace;
+}
+
+/* 全域重設 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-white);
+  font-family: var(--font-pixel), 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(30, 11, 54, 0.6) 0%, rgba(10, 3, 20, 0.9) 80%),
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 100%, 100% 4px, 6px 100%;
+}
+
+/* 霓虹文字發光 */
+.neon-text-pink {
+  color: #fff;
+  text-shadow: 
+    0 0 4px #fff,
+    0 0 10px var(--color-neon-pink),
+    0 0 20px var(--color-neon-pink),
+    0 0 40px var(--color-neon-pink);
+  font-family: var(--font-arcade);
+}
+
+.neon-text-cyan {
+  color: #fff;
+  text-shadow: 
+    0 0 4px #fff,
+    0 0 10px var(--color-neon-cyan),
+    0 0 20px var(--color-neon-cyan),
+    0 0 40px var(--color-neon-cyan);
+  font-family: var(--font-arcade);
+}
+
+.neon-text-green {
+  color: #fff;
+  text-shadow: 
+    0 0 4px #fff,
+    0 0 10px var(--color-neon-green),
+    0 0 20px var(--color-neon-green);
+  font-family: var(--font-arcade);
+}
+
+/* 像素風按鈕 */
+.pixel-btn {
+  background: #111;
+  color: #fff;
+  border: 4px solid #fff;
+  padding: 10px 20px;
+  font-family: var(--font-arcade);
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 6px 0 #666;
+  transition: all 0.05s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pixel-btn:active {
+  top: 6px;
+  box-shadow: 0 0px 0 #666;
+}
+
+.pixel-btn.pink {
+  border-color: var(--color-neon-pink);
+  box-shadow: 0 6px 0 #900048, 0 0 10px rgba(255, 0, 127, 0.5);
+  color: var(--color-neon-pink);
+}
+.pixel-btn.pink:active {
+  box-shadow: 0 0px 0 #900048, 0 0 5px rgba(255, 0, 127, 0.5);
+}
+
+.pixel-btn.cyan {
+  border-color: var(--color-neon-cyan);
+  box-shadow: 0 6px 0 #008b8b, 0 0 10px rgba(0, 255, 255, 0.5);
+  color: var(--color-neon-cyan);
+}
+.pixel-btn.cyan:active {
+  box-shadow: 0 0px 0 #008b8b, 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.pixel-btn.green {
+  border-color: var(--color-neon-green);
+  box-shadow: 0 6px 0 #1e820a, 0 0 10px rgba(57, 255, 20, 0.5);
+  color: var(--color-neon-green);
+}
+.pixel-btn.green:active {
+  box-shadow: 0 0px 0 #1e820a, 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+/* 經典像素框線 */
+.pixel-border {
+  border: 4px solid #fff;
+  position: relative;
+  box-shadow: 
+    0 4px 0 -2px #000,
+    0 -4px 0 -2px #000,
+    4px 0 0 -2px #000,
+    -4px 0 0 -2px #000;
+}
+
+/* 霓虹邊框發光 */
+.neon-border-pink {
+  border: 4px solid var(--color-neon-pink);
+  box-shadow: 
+    0 0 15px var(--color-neon-pink),
+    inset 0 0 10px rgba(255, 0, 127, 0.3);
+}
+
+.neon-border-cyan {
+  border: 4px solid var(--color-neon-cyan);
+  box-shadow: 
+    0 0 15px var(--color-neon-cyan),
+    inset 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* CRT 螢幕模擬器 */
+.crt-screen {
+  background: #0d021c;
+  position: relative;
+  overflow: hidden;
+  border: 12px solid #222;
+  border-radius: 20px;
+  box-shadow: 
+    inset 0 0 80px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(15, 5, 29, 0.8),
+    0 10px 0 #111;
+}
+
+/* 經典 CRT 掃描線 */
+.crt-screen::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 3px, 3px 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* 螢幕微發光 (Flicker) */
+.crt-screen::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: rgba(18, 16, 16, 0.05);
+  opacity: 0;
+  z-index: 11;
+  pointer-events: none;
+  animation: crt-flicker 0.15s infinite;
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 0.15; }
+  50% { opacity: 0.2; }
+  100% { opacity: 0.15; }
+}
+
+/* 霓虹閃爍 (適用於 INSERT COIN / PRESS START) */
+.neon-blink {
+  animation: neon-blink-anim 1.5s infinite;
+}
+
+@keyframes neon-blink-anim {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 
+      0 0 4px #fff,
+      0 0 10px var(--color-neon-cyan),
+      0 0 20px var(--color-neon-cyan);
+  }
+  20%, 24%, 55% {
+    opacity: 0.3;
+    text-shadow: none;
+  }
+}
+
+/* 像素血條 (生命條) */
+.pixel-healthbar-container {
+  width: 100%;
+  height: 20px;
+  background: #222;
+  border: 3px solid #fff;
+  padding: 2px;
+  display: flex;
+}
+
+.pixel-healthbar-fill {
+  height: 100%;
+  background: var(--color-neon-green);
+  transition: width 0.3s ease;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.pixel-healthbar-fill.warning {
+  background: var(--color-neon-yellow);
+}
+
+.pixel-healthbar-fill.danger {
+  background: var(--color-neon-pink);
+}
+
+/* 像素風輸入框 */
+.pixel-input {
+  background: #000;
+  color: #fff;
+  border: 4px solid var(--color-neon-cyan);
+  padding: 10px 15px;
+  font-family: var(--font-pixel);
+  font-size: 24px;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.pixel-input:focus {
+  border-color: var(--color-neon-pink);
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+}
+
+/* 8-bit 微顫動開機效果 */
+.screen-startup {
+  animation: startup-anim 0.4s ease-out;
+}
+
+@keyframes startup-anim {
+  0% {
+    transform: scaleY(0.01) scaleX(0);
+    filter: brightness(3);
+  }
+  50% {
+    transform: scaleY(0.01) scaleX(1);
+    filter: brightness(3);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1);
+  }
+}
+
+/* 街機搖桿按鍵裝飾 */
+.arcade-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #222;
+  padding: 15px;
+  border-top: 8px solid #444;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 0 10px 0 #111;
+}
+
+.arcade-joystick {
+  width: 50px;
+  height: 50px;
+  background: #333;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset 0 5px 5px rgba(0,0,0,0.5);
+}
+
+.arcade-joystick::after {
+  content: '';
+  width: 26px;
+  height: 26px;
+  background: var(--color-neon-pink);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 0 #900048, 0 0 10px var(--color-neon-pink);
+}
+
+.arcade-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.arcade-btn-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #000;
+  position: relative;
+  transition: all 0.05s ease;
+}
+
+.arcade-btn-circle:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #000;
+}
+
+.arcade-btn-circle.pink {
+  background: var(--color-neon-pink);
+  box-shadow: 0 4px 0 #900048, 0 0 8px rgba(255, 0, 127, 0.4);
+}
+.arcade-btn-circle.cyan {
+  background: var(--color-neon-cyan);
+  box-shadow: 0 4px 0 #008b8b, 0 0 8px rgba(0, 255, 255, 0.4);
+}
+.arcade-btn-circle.yellow {
+  background: var(--color-neon-yellow);
+  box-shadow: 0 4px 0 #b8b800, 0 0 8px rgba(255, 255, 0, 0.4);
+}
+
+/* 關主頭像旋轉入場 */
+.boss-entrance {
+  animation: boss-bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes boss-bounce {
+  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* 排行榜發光格線 */
+.arcade-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 16px;
+}
+
+.arcade-table th {
+  border-bottom: 2px solid var(--color-neon-cyan);
+  color: var(--color-neon-cyan);
+  padding: 8px;
+  text-align: left;
+  font-family: var(--font-arcade);
+  font-size: 11px;
+}
+
+.arcade-table td {
+  padding: 8px;
+  border-bottom: 1px dashed rgba(255,255,255,0.15);
+}
+
+.arcade-table tr:hover {
+  background: rgba(0, 255, 255, 0.08);
+}
